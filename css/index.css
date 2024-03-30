@@ -20,14 +20,28 @@ body {
 h1 {
   font-size: 2.5rem;
   text-align: center;
+  animation: slideLeft 1s forwards;
+  position: relative;
 }
 h2 {
   font-size: 1.8rem;
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 15px;
-  border-bottom: 2px solid sienna;
+  position: relative;
 }
+h2::after {
+  content: "";
+  background: var(--BGBROWN);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 4px; /* Adjust this value according to your design */
+  width: 100px;
+  transform: translate(-50%);
+  border-radius: 50%;
+}
+
 h3 {
   font-size: 1.2rem;
 }
@@ -233,6 +247,8 @@ article {
   margin-bottom: 20px;
   font-size: 20px;
   line-height: 1.6;
+  position: relative;
+  animation: slideRight 1s;
 }
 .hero img {
   margin-top: 20px;
@@ -242,6 +258,8 @@ article {
   border-radius: 50%;
   align-self: center;
   object-fit: cover;
+  position: relative;
+  animation: zoomIn 2s;
 }
 
 /* About Section */
@@ -380,6 +398,67 @@ article {
   text-align: center;
   font-size: 0.8rem;
 }
+/* PROJECT SECTION */
+.projects {
+  padding: 150px 20px;
+}
+
+.project-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  height: 250px;
+  width: 400px;
+  position: relative;
+  margin-bottom: 10px;
+  transition: all ease-in-out 0.3s;
+  cursor: default;
+  overflow: hidden;
+  border-radius: 10px;
+  animation: fadeIn 10s forwards;
+}
+
+.project:hover .project-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transition: all 0.4s linear;
+  color: white;
+  text-align: center;
+}
+.project img {
+  width: 100%;
+  height: 100%;
+}
+
+.project-contents p {
+  text-align: center;
+  margin: 15px auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.project-text {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.project h3 {
+  font-size: 1.5rem;
+}
+.project p {
+  text-align: unset;
+  line-height: 1.6;
+}
+.project .cta-btn {
+  width: 100%;
+}
 /* Contacts */
 .contact {
   height: 100vh;
@@ -401,6 +480,7 @@ article {
 .contact p {
   margin-bottom: 20px;
   font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .contact .form {
@@ -455,6 +535,111 @@ article {
 .form button:hover {
   background: linear-gradient(to right, darkcyan, var(--BGBROWN));
 }
+/* FOOTER SECTION */
+footer {
+  padding: 50px 0;
+  background-image: linear-gradient(
+    to right,
+    var(--BGBROWN),
+    var(--BGDARK),
+    var(--BGBROWN)
+  );
+  color: #f0f0f0;
+}
+.footer-wrapper {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 10px 0;
+  max-width: 1024px;
+  margin: auto;
+}
+.brand {
+  flex: 2;
+  margin-bottom: 20px;
+}
+.brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+.brand p {
+  line-height: 1.6;
+  font-style: italic;
+}
+.social {
+  flex: 1;
+  padding-right: 50px;
+}
+.social h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.social .social-icons {
+  display: flex;
+  justify-content: space-around;
+}
+.social a {
+  height: 30px;
+  width: 30px;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.social i {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  color: #fff;
+}
+footer .divider {
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 50%;
+}
+.footnote {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* ANIMATION SECTION */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes slideRight {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
 
 @media (min-width: 900px) {
   .header {
@@ -473,12 +658,22 @@ article {
     background: transparent;
     transition: all 0.4s ease-in-out;
     border-bottom: 2px solid transparent;
+    position: relative;
   }
 
-  .header ul a:hover,
-  .header ul a.active {
-    background: transparent;
-    border-bottom: 2px solid orange;
+  .header ul a:hover::after,
+  .header ul a.active::after {
+    content: "";
+    background: var(--BGBROWN);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px; /* Adjust this value according to your design */
+    width: 40px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+    transition: width 0.3s ease;
   }
 
   .header .menu {
@@ -502,5 +697,10 @@ article {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
+  }
+  /* Projects */
+  /* FOOTER SECTION */
+  .footer-wrapper {
+    flex-direction: row;
   }
 }
