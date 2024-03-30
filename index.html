@@ -42,18 +42,18 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <a href="/" class="logo">OluegwuC</a>
+      <a href="#home" class="logo">OluegwuC</a>
       <input type="checkbox" class="menu-btn" id="menu-btn" />
       <label for="menu-btn" class="menu-icon">
         <span class="nav-icon"></span
       ></label>
       <ul class="menu">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </header>
     <!-- MAIN  -->
@@ -111,13 +111,18 @@
               communication and a website that truly reflects your unique needs
             </p>
           </div>
+          <a href="#contact" class="btn cta-btn"
+            >Let's discuss your website project!</a
+          >
         </article>
       </section>
       <!-- SERVICES -->
       <section class="services" id="services">
         <article>
           <h2>Services</h2>
-          <h3>I craft exceptional websites and empower future developers.</h3>
+          <h3 class="title">
+            I craft exceptional websites and empower future developers.
+          </h3>
           <p class="paragraph">
             I offer a range of services to meet your unique web development
             needs:
@@ -153,38 +158,33 @@
               </div>
             </div>
             <div class="card">
-              <img src="images/training.jpg" alt="Web Development" />
+              <img src="images/app.jpg" alt="Web Development" />
               <div class="card_body">
-                <h3>Training</h3>
+                <h3>Hybrid Mobile/Desktop App</h3>
                 <p>
-                  I'm passionate about sharing my knowledge and helping others
-                  achieve their web development goals. I offer comprehensive
-                  training programs that cover the fundamentals of web
-                  development, from front-end technologies like HTML, CSS, and
-                  JavaScript to back-end development using frameworks like
-                  Node.js. With my training, you'll gain the practical skills
-                  and confidence to build your own websites or pursue a career
-                  in web development.
+                  Reach more users, write less code. Build beautiful hybrid
+                  mobile and desktop apps with a single codebase. Let's discuss
+                  your project
                 </p>
               </div>
             </div>
             <div class="card">
-              <img src="images/training.jpg" alt="Web Development" />
+              <img src="images/consulting.jpg" alt="Web Development" />
               <div class="card_body">
-                <h3>Training</h3>
+                <h3>Consultation</h3>
                 <p>
-                  I'm passionate about sharing my knowledge and helping others
-                  achieve their web development goals. I offer comprehensive
-                  training programs that cover the fundamentals of web
-                  development, from front-end technologies like HTML, CSS, and
-                  JavaScript to back-end development using frameworks like
-                  Node.js. With my training, you'll gain the practical skills
-                  and confidence to build your own websites or pursue a career
-                  in web development.
+                  Need expert advice on your website? Get my web development
+                  consulting! I can guide you through planning, development, or
+                  troubleshooting your project. Leverage my experience as a
+                  developer and trainer to get your website on track. Schedule a
+                  consultation today!
                 </p>
               </div>
             </div>
           </div>
+          <a href="#contact" class="btn cta-btn" style="margin-top: 15px"
+            >Let's Discuss Your Needs</a
+          >
         </article>
       </section>
       <!-- SKILSS -->
@@ -192,10 +192,10 @@
         <article>
           <div class="skills__header">
             <h2 class="heading">Skills</h2>
-            <p class="title">Building the future with a powerful tech stack.</p>
+            <h3 class="title">Building the future with a powerful skillset</h3>
             <p class="subtitle">
               I leverage a comprehensive set of technologies to deliver
-              exceptional web experiences:
+              exceptional web experiences
             </p>
           </div>
           <div class="skills-wrapper">
@@ -276,6 +276,10 @@
               </div>
             </div>
           </div>
+
+          <a href="#contact" class="btn cta-btn" style="margin-top: 15px">
+            Have a project in mind? Let's discuss!</a
+          >
         </article>
       </section>
 
@@ -283,6 +287,58 @@
         <!-- Projects -->
       </section>
       <!-- CONTACTS -->
+      <section class="contact" id="contact">
+        <article class="contact-wrapper">
+          <h2>Contact</h2>
+          <p>Ready to learn web development? Get in touch!</p>
+
+          <form action="" class="form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter Your Phone"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="name"
+                placeholder="Enter Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Enter Your Message"
+                required
+              ></textarea>
+            </div>
+            <div class="btn-container">
+              <button type="submit">Let's Talk</button>
+            </div>
+          </form>
+        </article>
+      </section>
     </main>
+    <footer>
+      <h2>Footer Will be here</h2>
+    </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>
