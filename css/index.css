@@ -18,6 +18,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background: linear-gradient(to right, #bbc, whitesmoke, #f0f0f0);
 }
 
 /* Universal */
@@ -131,7 +132,6 @@ button {
   font-style: normal;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: Georgia, "Times New Roman", Times, serif;
   transition: all 0.4s ease-in-out;
 }
 .header .logo:hover {
@@ -551,13 +551,8 @@ article {
 /* FOOTER SECTION */
 footer {
   padding: 50px 0;
-  background-image: linear-gradient(
-    to right,
-    var(--BGBROWN),
-    var(--BGDARK),
-    var(--BGBROWN)
-  );
-  color: #f0f0f0;
+  background-image: linear-gradient(to right, whitesmoke, #f0f0f0, white);
+  color: #333;
 }
 .footer-wrapper {
   justify-content: center;
@@ -565,7 +560,7 @@ footer {
   align-items: center;
   align-content: center;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 10px;
   max-width: 1024px;
   margin: auto;
 }
@@ -576,6 +571,7 @@ footer {
 .brand h3 {
   font-size: 1.8rem;
   margin-bottom: 5px;
+  color: #333;
 }
 .brand p {
   line-height: 1.6;
@@ -596,16 +592,20 @@ footer {
 .social a {
   height: 30px;
   width: 30px;
-  border: 1px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: all 0.4s linear;
+}
+.social a:hover {
+  transform: scale(1.2);
 }
 .social i {
   font-size: 1.3rem;
   border-radius: 50%;
-  color: #fff;
+  color: #333;
+  font-weight: bold;
 }
 footer .divider {
   max-width: 600px;
