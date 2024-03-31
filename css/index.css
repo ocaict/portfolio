@@ -572,6 +572,9 @@ footer {
   font-size: 1.8rem;
   margin-bottom: 5px;
   color: #333;
+  font-family: "Pacifico", cursive;
+  font-style: normal;
+  font-weight: bold;
 }
 .brand p {
   line-height: 1.6;

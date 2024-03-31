@@ -55,5 +55,4 @@ form.addEventListener("submit", async (e) => {
   }
   const result = await res.json();
   clearInputs(formInputs);
-  console.log(result);
 });
