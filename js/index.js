@@ -1,5 +1,20 @@
 const menu = document.querySelector(".menu");
 const menuButtons = menu.querySelectorAll("a");
+const messageBox = document.querySelector(".message-container");
+const submitBtn = document.querySelector(".submit-btn");
+let classType;
+const showMessage = (msg, type, time = 5000) => {
+  classType = type;
+  messageBox.innerHTML = `
+  <p>${msg}</p>
+  <i class="fas fa-times close-btn"></i>
+  `;
+  messageBox.classList.add(type);
+  setTimeout(() => {
+    messageBox.classList.remove(type);
+    messageBox.innerHTML = "";
+  }, time);
+};
 
 menuButtons.forEach((menuBtn) => {
   menuBtn.addEventListener("click", (e) => {
@@ -30,6 +45,8 @@ const clearInputs = (inputs) => {
 };
 
 form.addEventListener("submit", async (e) => {
+  submitBtn.textContent = "Processing...";
+  submitBtn.disabled = true;
   const url = "http://localhost:3600/contact";
   e.preventDefault();
   const formInputs = Array.from(form.querySelectorAll("input"));
@@ -42,17 +59,41 @@ form.addEventListener("submit", async (e) => {
   });
 
   formData.message = sanitizeMessage(formData.message);
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
 
-  if (!res.ok) {
-    throw new Error("Server not Reached");
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      showMessage(
+        `Hi ${result.user.name}, Your message has been submitted successfully. I will get in touch within 24 hours`,
+        "success",
+        20000
+      );
+      clearInputs(formInputs);
+      submitBtn.textContent = "Let's Go";
+      submitBtn.disabled = false;
+    } else {
+      showMessage(result.message, "warning");
+      submitBtn.textContent = "Let's Go";
+      submitBtn.disabled = false;
+    }
+  } catch (error) {
+    submitBtn.textContent = "Let's Go";
+    submitBtn.disabled = false;
+    console.log(error);
+    showMessage(error.message, "error");
   }
-  const result = await res.json();
-  clearInputs(formInputs);
+});
+
+messageBox.addEventListener("click", (e) => {
+  if (e.target.className.includes("close-btn")) {
+    messageBox.classList.remove(classType);
+  }
 });
