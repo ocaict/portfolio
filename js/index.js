@@ -47,7 +47,7 @@ const clearInputs = (inputs) => {
 form.addEventListener("submit", async (e) => {
   submitBtn.textContent = "Processing...";
   submitBtn.disabled = true;
-  const url = "http://localhost:3600/contact";
+  const url = "https://ocawebtch-portfolio.onrender.com/contact";
   e.preventDefault();
   const formInputs = Array.from(form.querySelectorAll("input"));
   const messageInput = form.querySelector("textarea");
