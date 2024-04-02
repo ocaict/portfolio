@@ -55,7 +55,7 @@ form.addEventListener("submit", async (e) => {
 
   const formData = {};
   formInputs.forEach((input) => {
-    formData[input.name] = input.value;
+    formData[input.name] = input.value.trim();
   });
 
   formData.message = sanitizeMessage(formData.message);
